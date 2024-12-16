@@ -19,11 +19,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-800 shadow-md">
+    <nav className="shadow-md">
       <div className=" px-6 py-3 w-full">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
-          <Link to="/" className="text-white text-2xl font-semibold">
+          <Link to="/" className="text-current text-2xl font-semibold">
             MyLogo
           </Link>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none"
+              className="text-current focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

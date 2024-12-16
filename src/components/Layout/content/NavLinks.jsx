@@ -8,25 +8,25 @@ const NavLinks = ({isMenuOpen}) => {
       <div className="px-6 space-y-4">
         <Link
           to="/home"
-          className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
+          className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
           Home
         </Link>
         <Link
           to="/about"
-          className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
+          className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
           About
         </Link>
         <Link
           to="/services"
-          className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
+          className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
           Services
         </Link>
         <Link
           to="/contact"
-          className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
+          className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
           Contact
         </Link>
@@ -39,25 +39,25 @@ const NavLinks = ({isMenuOpen}) => {
     <div className="hidden lg:flex space-x-6">
       <Link
         to="/home"
-        className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
+        className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
         Home
       </Link>
       <Link
         to="/about"
-        className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
+        className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
         About
       </Link>
       <Link
         to="/services"
-        className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
+        className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
         Services
       </Link>
       <Link
         to="/contact"
-        className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
+        className="text-current hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
         Contact
       </Link>
