@@ -19,4 +19,3 @@ export const login_user = createAsyncThunk(
 		}
 	}
 )
-
