@@ -5,6 +5,7 @@ import Auth from "./content/Autentication";
 import { Link } from "react-router-dom";
 import Profile from "./content/Profile";
 import ThemeChangeComponent from "./content/ThemeChangeComponent";
+import logo from "../../../public/Logo.png"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link to="/" className="text-current text-2xl font-semibold">
-            MyLogo
+            <img src={logo} width="70px" height="70px"/>
           </Link>
 
           {/* Menu Button for mobile view */}

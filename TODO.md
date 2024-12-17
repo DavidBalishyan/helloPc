@@ -1,5 +1,8 @@
 [] auth logic >>> global/globalSlice.js
-[] make "Thrash" component
+[x] make "Thrash" component
 [] add msg`s when usr is logging in/signining up
 [] make the website`s UI better
-[] Make the logo of website
+[x] Make the logo of website
+[x] Update the welcome page
+[] Make the Learn more component /pages/LrnMore.jsx
+[] Update the README.md

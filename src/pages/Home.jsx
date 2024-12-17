@@ -1,6 +1,7 @@
 import React from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom";
+import logo1 from "../../public/Logo1.webp"
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <div className="hero min-h-screen bg-gradient-to-r from-blue-400 to-purple-600 text-white">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
-            src="https://via.placeholder.com/400x400"
+            src={logo1}
             alt="Hero Illustration"
             className="max-w-sm rounded-lg shadow-2xl"
           />

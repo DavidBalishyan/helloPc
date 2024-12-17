@@ -66,32 +66,32 @@ const ThemeToggleComponent = () => {
     <>
       <li>
         <Link className="btn" to="/trash">
-          Light
+          Light💡
         </Link>
       </li>
       <li>
         <button className="btn" onClick={() => themeToggle("dark")}>
-          Dark
+          Dark🌙
         </button>
       </li>
       <li>
         <button className="btn" onClick={() => themeToggle("halloween")}>
-          Halloween
+          Halloween🎃
         </button>
       </li>
       <li>
         <button className="btn" onClick={() => themeToggle("system")}>
-          System
+          System🖥️
         </button>
       </li>
       <li>
         <button className="btn" onClick={() => themeToggle("rnd")}>
-          Random theme
+          Random theme👀
         </button>
       </li>
       <li>
         <button className="btn" onClick={() => themeToggle("next")}>
-          Next theme
+          Next theme⏭️
         </button>
       </li>
     </>

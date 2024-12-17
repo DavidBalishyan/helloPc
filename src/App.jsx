@@ -19,6 +19,7 @@ import { addError, addNotification } from "./logic/global/globalSlice";
 import { getCurrentFullUnixTime } from "./utils/time";
 import ThemeToggleComponent from "./components/_common/ThemeToggleComponent";
 import Trash from "./components/Trash";
+import LrnMore from "./pages/LrnMore";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,7 +48,9 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
+
         </Route>
+        <Route path="/lrnmore" element={<LrnMore/>} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/trash" element={<Trash/>} />
         <Route path="*" element={<NotFound />} />

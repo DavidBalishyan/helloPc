@@ -1,14 +1,24 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-primary">Welcome to My App!</h1>
-        <p className="py-6 text-lg text-base-content">
-          Explore the features of our app and enjoy the seamless experience.
+    <div className="min-h-screen flex flex-col items-center justify-center bg-base-200 text-base-content">
+      {/* Hero Section */}
+      <div className="text-center p-6 max-w-3xl">
+        <h1 className="text-5xl font-bold mb-4 text-primary">
+          Welcome to Our Website
+        </h1>
+        <p className="text-lg mb-6 text-white">
+          Empowering your ideas with modern web and mobile solutions. Explore our
+          services and let’s build something amazing together.
         </p>
-			<Link to={"/getstarted"} className="btn btn-accent">Get Started</Link>
+        <div className="flex justify-center gap-4">
+          <Link to="/getstarted" className="btn btn-primary btn-wide">Get Started</Link>
+          <Link to="/lrnmore" className="btn btn-outline btn-wide">
+            Learn More
+          </Link>
+        </div>
       </div>
     </div>
   );
