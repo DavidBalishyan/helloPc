@@ -5,12 +5,6 @@
       "email": "test@test.test",
       "password": "test",
       "id": 1
-    },
-    {
-      "fullName": "David",
-      "email": "davidbalishyan12@gmail.com",
-      "password": "asjldgfoyf",
-      "id": 2
     }
   ]
 }
