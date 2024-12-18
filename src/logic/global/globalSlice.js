@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCurrentFullUnixTime } from "../../utils/time";
+import { generateId, getCurrentFullUnixTime } from "../../utils/time";
 
 const initialState = {
   errors: [],
-  notifications: [],
+  success: [],
+  info: [],
   loading: false,
 };
 
@@ -13,7 +14,7 @@ const globalSlice = createSlice({
   reducers: {
     addError: (state, action) => {
       const time = getCurrentFullUnixTime();
-      const id = state.errors.at(-1)?.id + 1 || 1      
+      const id = generateId()
       state.errors.push({ id, message: action.payload, timestamp: time });
     },
     removeError: (state, action) => {
@@ -21,15 +22,23 @@ const globalSlice = createSlice({
         (error) => error.id !== action.payload
       );
     },
-    addNotification: (state, action) => {
+    addSuccess: (state, action) => {
       const time = getCurrentFullUnixTime();
-      const id = state.errors.at(-1)?.id + 1 || 1  
-      state.notifications.push({ id, message: action.payload, timestamp: time });
+      const id = generateId()
+      state.success.push({ id, message: action.payload, timestamp: time });
     },
-    removeNotification: (state, action) => {
-      state.notifications = state.notifications.filter(
-        (notification) => notification.id !== action.payload
+    removeSuccess: (state, action) => {
+      state.success = state.success.filter(
+        (success) => success.id !== action.payload
       );
+    },
+    addInfo: (state, action) => {
+      const time = getCurrentFullUnixTime();
+      const id = generateId()
+      state.info.push({ id, message: action.payload, timestamp: time });
+    },
+    removeInfo: (state, action) => {
+      state.info = state.info.filter((info) => info.id !== action.payload);
     },
     startLoading: (state) => {
       state.loading = true;
@@ -43,8 +52,11 @@ const globalSlice = createSlice({
 export const {
   addError,
   removeError,
-  addNotification,
-  removeNotification,
-  startLoading, stopLoading,
+  addInfo,
+  addSuccess,
+  removeInfo,
+  removeSuccess,
+  startLoading,
+  stopLoading,
 } = globalSlice.actions;
 export default globalSlice.reducer;

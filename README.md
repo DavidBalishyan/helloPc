@@ -8,7 +8,8 @@
 <p>React</p>
 <img src="./public/js.png"/>
 <p>Javascript</p>
-<img src="./public/Tailwind_CSS_Logo.png"/>
+<img src="./public/Tailwind_CSS_Logo.png" width="100px"/>
 <p>Tailwindcss</p>
-<img src="./public/daisyui-logomark.svg"/>
-<p>daisyui</p>
+<!-- [Alt Text](./public/daisyui-logomark.svg){width=300 height=200} -->
+<!-- <img src="./public/daisyui-logomark.svg"/> -->
+<!-- <p>daisyui</p> -->

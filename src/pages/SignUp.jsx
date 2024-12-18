@@ -1,13 +1,20 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { postUser } from "../logic/auth/authSignUpAPI";
+import { check_user_email, postUser } from "../logic/auth/authSignUpAPI";
+import { addError, addInfo } from "../logic/global/globalSlice";
 
 function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    // watch,
+  } = useForm({
+    defaultValues: {
+
+    },
+    mode: "onSubmit"
+  });
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
@@ -15,7 +22,7 @@ function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
+    <div className="flex flex-grow items-center justify-center bg-base-200">
       <div className="card w-full max-w-md shadow-xl bg-base-100">
         <div className="card-body">
           <h2 className="card-title text-center mb-4">Register</h2>
@@ -53,6 +60,11 @@ function SignUp() {
                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                     message: "Invalid email format",
                   },
+                  validate: async (value) => {
+                    const result = await dispatch(check_user_email(value));
+                    return result.payload ? dispatch(addError("Email is alredy taken. Please choose another email")) : true;
+                  }
+                  
                 })}
                 className="input input-bordered w-full"
               />

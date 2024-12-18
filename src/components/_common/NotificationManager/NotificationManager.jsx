@@ -2,33 +2,27 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   removeError,
-  removeNotification,
+  removeInfo,
+  removeSuccess,
 } from "../../../logic/global/globalSlice";
 
-/**
- * 
- * @returns 
- */
 const NotificationManager = () => {
   const [notifications, setNotifications] = useState([]);
-  const errors = useSelector((state) => state?.global?.errors);
-  const successes = useSelector((state) => state?.global?.notifications);
+  const { errors, success, info } = useSelector((state) => state?.global);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const allMessages = [
-      ...errors.map((error) => ({ ...error, type: "error" })),
-      ...successes.map((notification) => ({
-        ...notification,
-        type: "success",
-      })),
+      ...errors.map((e) => ({ ...e, type: "error" })),
+      ...success.map((s) => ({...s,type: "success",})),
+      ...info.map((i) => ({...i,type: "info",})),
     ];
 
     const sortedMessages = allMessages.sort(
       (a, b) => a.timestamp - b.timestamp
     );
     setNotifications(sortedMessages);
-  }, [errors, successes]);
+  }, [errors, success, info]);
 
   useEffect(() => {
     const timers = notifications.map((notification) => {
@@ -46,7 +40,9 @@ const NotificationManager = () => {
     if (key.type === "error") {
       dispatch(removeError(key.id));
     } else if (key.type === "success") {
-      dispatch(removeNotification(key.id));
+      dispatch(removeSuccess(key.id));
+    }else if(key.type === "info") {
+      dispatch(removeInfo(key.id))
     }
   };
 
@@ -56,7 +52,11 @@ const NotificationManager = () => {
         <div
           key={notification.timestamp + notification.id}
           className={`alert shadow-lg max-w-sm ${
-            notification.type === "error" ? "alert-error" : "alert-success"
+            notification.type === "error"
+              ? "alert-error"
+              : notification.type === "info"
+              ? "alert-info"
+              : "alert-success"
           } animate-fade-in`}
         >
           <div>

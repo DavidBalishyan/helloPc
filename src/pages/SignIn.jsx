@@ -30,7 +30,7 @@ function SignIn() {
   };
 
   return (
-    <div className="h-screen flex justify-center items-center bg-base-200">
+    <div className="flex flex-grow justify-center items-center bg-base-200">
       <div className="card w-full max-w-md shadow-2xl bg-base-100">
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center">Sign In</h2>

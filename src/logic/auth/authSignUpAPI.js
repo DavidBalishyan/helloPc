@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { userAPI } from "../../app/config"
+import { userAPI } from "../../app/config";
+import { addError } from "../global/globalSlice";
 
 export const getUsers = createAsyncThunk("get/users", async () => {
   try {
@@ -12,9 +13,21 @@ export const getUsers = createAsyncThunk("get/users", async () => {
 
 export const postUser = createAsyncThunk("post/postUser", async (obj) => {
   try {
-    const resp = await userAPI.post('', obj)
+    const resp = await userAPI.post("", obj);
     return resp.data;
   } catch (error) {
     return error;
   }
 });
+
+export const check_user_email = createAsyncThunk(
+  "get/check_user_email",
+  async (email, {dispatch}) => {
+    try {
+      const response = await userAPI.get(`?email=${email}`)
+      return response.data.length
+    } catch (error) {
+      dispatch(addError(error.message))
+    }
+  }
+);
