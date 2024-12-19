@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-purple-100">
+    <div className="bg-gradient-to-r flex flex-col flex-grow from-blue-50 to-purple-100">
       {/* Hero Section */}
       <div className="hero bg-gradient-to-r from-blue-400 to-purple-600 text-white py-16">
         <div className="hero-content text-center">

@@ -4,9 +4,9 @@ const Service = () => {
   console.log(document.getElementN);
   
   return (
-    <div className="bg-base-200" data-theme="dark">
+    <div className="bg-base-200 flex flex-col flex-grow">
       {/* Hero Section */}
-      <div className="hero bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16">
+      <div className="hero bg-gradient-to-r  from-blue-500 to-purple-600 text-white py-16">
         <div className="hero-content text-center">
           <div className="max-w-3xl">
             <h1 className="text-5xl font-bold">Our Services</h1>

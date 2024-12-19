@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-base-200">
+    <div className="flex flex-col flex-grow bg-base-200">
       {/* Hero Section */}
       <div className="hero bg-gradient-to-r from-blue-400 to-purple-600 text-white py-16">
         <div className="hero-content text-center">
