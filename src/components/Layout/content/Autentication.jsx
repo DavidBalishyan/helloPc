@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // eslint-disable-next-line react/prop-types
-const Auth = ({isMenuOpen}) => {
+const Auth = ({ isMenuOpen }) => {
+  const { t } = useTranslation ();
   if (isMenuOpen) {
     return (
       <div className="px-6 space-y-4">
@@ -9,13 +11,13 @@ const Auth = ({isMenuOpen}) => {
           to="/signin"
           className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
-          Sign In
+          {t("signin")}
         </Link>
         <Link
           to="/signup"
           className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg block"
         >
-          Sign Up
+          {t("signup")}
         </Link>
       </div>
     );
@@ -26,18 +28,16 @@ const Auth = ({isMenuOpen}) => {
         to="/signin"
         className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
-        Sign In
+        {t("signin")}
       </Link>
       <Link
         to="/signup"
         className="text-white hover:bg-blue-500 px-3 py-2 rounded-md text-lg"
       >
-        Sign Up
+        {t("signup")}
       </Link>
     </div>
   );
-
 };
 
 export default Auth;
-

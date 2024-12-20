@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Service = () => {
-  console.log(document.getElementN);
-  
   return (
     <div className="bg-base-200 flex flex-col flex-grow">
       {/* Hero Section */}
@@ -18,7 +16,6 @@ const Service = () => {
           </div>
         </div>
       </div>
-
       {/* Services Grid */}
       <div className="container mx-auto py-16 px-4">
         <h2 className="text-4xl font-bold text-center mb-8">What We Offer</h2>

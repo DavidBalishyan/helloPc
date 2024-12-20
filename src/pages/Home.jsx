@@ -1,6 +1,6 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Link } from "react-router-dom";
-import logo1 from "../../public/Logo1.webp"
+import logo1 from "/Logo1.webp"
 
 const Home = () => {
   return (

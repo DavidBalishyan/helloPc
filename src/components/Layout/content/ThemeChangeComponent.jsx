@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import ThemeToggleComponent from "../../_common/ThemeToggleComponent/ThemeToggleComponent";
-import thmch from "../../../../public/g.svg";
+import thmch from "/g.svg";
 
 const ThemeChangeComponent = ({ setAuth }) => {
   const navigate = useNavigate();

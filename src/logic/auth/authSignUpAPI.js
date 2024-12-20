@@ -11,23 +11,26 @@ export const getUsers = createAsyncThunk("get/users", async () => {
   }
 });
 
-export const postUser = createAsyncThunk("post/postUser", async (obj) => {
-  try {
-    const resp = await userAPI.post("", obj);
-    return resp.data;
-  } catch (error) {
-    return error;
+export const postUser = createAsyncThunk(
+  "post/postUser",
+  async (obj, { dispatch }) => {
+    try {
+      const resp = await userAPI.post("", obj);
+      return resp.data;
+    } catch (error) {
+      dispatch(addError(error.message));
+    }
   }
-});
+);
 
 export const check_user_email = createAsyncThunk(
   "get/check_user_email",
-  async (email, {dispatch}) => {
+  async (email, { dispatch }) => {
     try {
-      const response = await userAPI.get(`?email=${email}`)
-      return response.data.length
+      const response = await userAPI.get(`?email=${email}`);
+      return response.data.length;
     } catch (error) {
-      dispatch(addError(error.message))
+      dispatch(addError(error.message));
     }
   }
 );

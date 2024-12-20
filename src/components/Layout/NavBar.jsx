@@ -1,19 +1,17 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import NavLinks from "./content/NavLinks";
-import { useEffect } from "react";
 import Auth from "./content/Autentication";
 import { Link } from "react-router-dom";
 import Profile from "./content/Profile";
 import ThemeChangeComponent from "./content/ThemeChangeComponent";
-import logo from "../../../public/Logo.png"
+import logo from "/Logo.png";
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAuth, setAuth] = useState(false);
-
-  useEffect(() => {
-    setAuth(localStorage.getItem("usr_state"));
-  }, [isAuth]);
+  const { isAuth } = useSelector((state) => state.global);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,7 +23,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <Link to="/" className="text-current text-2xl font-semibold">
-            <img src={logo} width="70px" height="70px"/>
+            <img src={logo} width="70px" height="70px" />
           </Link>
 
           {/* Menu Button for mobile view */}
@@ -52,17 +50,20 @@ const Navbar = () => {
           </div>
 
           {/* Nav Links */}
-          {!isMenuOpen && isAuth ? (
-            <>
-              <div className="flex-grow flex justify-center">
-                <NavLinks isMenuOpen={isMenuOpen} />
-              </div>
-              <Profile setAuth={setAuth} />
-              <ThemeChangeComponent />
-            </>
-          ) : (
-            <Auth isMenuOpen={isMenuOpen} />
-          )}
+          <div className="flex-grow flex justify-end items-center">
+            {!isMenuOpen && isAuth ? (
+              <>
+                <div className="flex-grow flex justify-center">
+                  <NavLinks isMenuOpen={isMenuOpen} />
+                </div>
+                <Profile />
+                <ThemeChangeComponent />
+              </>
+            ) : (
+              <Auth isMenuOpen={isMenuOpen} />
+            )}
+            LNG
+          </div>
         </div>
       </div>
 

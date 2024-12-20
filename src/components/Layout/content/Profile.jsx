@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import usrimg from "../../../img/usr.svg"
+import usrimg from "../../../img/usr.svg";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../../../logic/global/globalSlice";
 
-
-const Profile = ({setAuth}) => {
-	const navigate = useNavigate()
+const Profile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div className="dropdown dropdown-end">
@@ -14,10 +16,7 @@ const Profile = ({setAuth}) => {
         className="btn btn-ghost btn-circle avatar"
       >
         <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src={usrimg}
-          />
+          <img alt="Tailwind CSS Navbar component" src={usrimg} />
         </div>
       </div>
       <ul
@@ -34,11 +33,16 @@ const Profile = ({setAuth}) => {
           <a>Settings</a>
         </li>
         <li>
-          <button className="btn btn-primary" onClick={() => {
-			localStorage.removeItem("usr_state")
-			navigate("/signin")
-			setAuth(false)
-		  }}>Logout</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              localStorage.removeItem("usr_state");
+              dispatch(setAuth(false));
+              navigate("/signin");
+            }}
+          >
+            Logout
+          </button>
         </li>
       </ul>
     </div>

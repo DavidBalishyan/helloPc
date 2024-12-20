@@ -1,12 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { login_user } from "../logic/auth/authSignInAPI";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignIn() {
   const navigate = useNavigate();
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -14,19 +16,16 @@ function SignIn() {
   const onSubmit = (data) => {
     dispatch(login_user(data))
       .then((data) => {
-        if (data.payload) {
-          localStorage.setItem("usr_state", true);
-        }
-        return data.payload
-      })
-      .then((check_usr_state) => {
-        if(check_usr_state) {
+        
+        
+        if (!(data.meta.requestStatus === "rejected")) {
           navigate("/welcome");
         }
+        reset()
       })
       .catch((err) => {
         console.warn(err);
-      });
+      })
   };
 
   return (
@@ -91,10 +90,10 @@ function SignIn() {
             </div>
           </form>
           <p className="text-center text-sm mt-4">
-            Don’t have an account?{" "}
-            <a href="/signup" className="text-blue-500 hover:underline">
+            Don&#39;t have an account?{" "}
+            <Link to={"/signup"} className="text-blue-500 hover:underline">
               Sign Up
-            </a>
+            </Link>
           </p>
         </div>
       </div>

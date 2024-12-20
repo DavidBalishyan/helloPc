@@ -4,7 +4,7 @@ import SignUp from "./pages/SignUp";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { getUsers } from "./logic/auth/authSignUpAPI";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import SignIn from "./pages/SignIn";
 import Welcome from "./pages/Welcome";
@@ -17,13 +17,13 @@ import Contact from "./pages/Contact";
 import NotificationManager from "./components/_common/NotificationManager";
 import { addError, addInfo, addSuccess } from "./logic/global/globalSlice";
 import { getCurrentFullUnixTime } from "./utils/time";
-import ThemeToggleComponent from "./components/_common/ThemeToggleComponent";
 import Trash from "./components/Trash";
 import LrnMore from "./pages/LrnMore";
 
 function App() {
   const dispatch = useDispatch();
-  const { user, users, success } = useSelector((state) => state.account);
+  const { isAuth } = useSelector((state) => state.global);
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(getUsers());
   }, [dispatch]);
@@ -34,6 +34,12 @@ function App() {
     dispatch(addInfo(getCurrentFullUnixTime()));
     dispatch(addError(getCurrentFullUnixTime()));
   }, []);
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/signin");
+    }
+  }, [isAuth]);
 
   return (
     <div className="h-[100vh] flex flex-grow flex-col bg-background text-text">
@@ -48,11 +54,10 @@ function App() {
           <Route path="/services" element={<Service />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
-        <Route path="/lrnmore" element={<LrnMore/>} />
+        <Route path="/lrnmore" element={<LrnMore />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/trash" element={<Trash/>} />
+        <Route path="/trash" element={<Trash />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
       <NotificationManager />
     </div>

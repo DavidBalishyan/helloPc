@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { check_user_email, postUser } from "../logic/auth/authSignUpAPI";
 import { addError, addInfo } from "../logic/global/globalSlice";
+import { Link } from "react-router-dom";
 
 function SignUp() {
   const {
@@ -10,10 +12,8 @@ function SignUp() {
     formState: { errors },
     // watch,
   } = useForm({
-    defaultValues: {
-
-    },
-    mode: "onSubmit"
+    defaultValues: {},
+    mode: "onSubmit",
   });
   const dispatch = useDispatch();
 
@@ -62,9 +62,14 @@ function SignUp() {
                   },
                   validate: async (value) => {
                     const result = await dispatch(check_user_email(value));
-                    return result.payload ? dispatch(addError("Email is alredy taken. Please choose another email")) : true;
-                  }
-                  
+                    return result.payload
+                      ? dispatch(
+                          addError(
+                            "Email is alredy taken. Please choose another email"
+                          )
+                        )
+                      : true;
+                  },
                 })}
                 className="input input-bordered w-full"
               />
@@ -92,14 +97,17 @@ function SignUp() {
 
             {/* Submit Button */}
             <div className="form-control mt-4">
-              <button
-                type="submit"
-                className="btn btn-primary w-full"
-              >
+              <button type="submit" className="btn btn-primary w-full">
                 Sign up
               </button>
             </div>
           </form>
+          <p className="text-center text-sm mt-4">
+            Already have an account?{" "}
+            <Link to={"/signin"} className="text-blue-500 hover:underline">
+              Sign In
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { addError } from "../../../logic/global/globalSlice";
+import { useDispatch } from "react-redux";
 
 const themes = [
   "dark",
@@ -38,6 +40,7 @@ const themes = [
 
 const ThemeToggleComponent = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "system");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -65,7 +68,7 @@ const ThemeToggleComponent = () => {
   return (
     <>
       <li>
-        <Link className="btn" to="/trash">
+        <Link className="btn" to="/trash" onClick={() => dispatch(addError("GET OUT!"))}>
           Light💡
         </Link>
       </li>

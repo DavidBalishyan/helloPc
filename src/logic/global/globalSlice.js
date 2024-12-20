@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 import { generateId, getCurrentFullUnixTime } from "../../utils/time";
 
@@ -6,6 +7,7 @@ const initialState = {
   success: [],
   info: [],
   loading: false,
+  isAuth: false,
 };
 
 const globalSlice = createSlice({
@@ -14,7 +16,7 @@ const globalSlice = createSlice({
   reducers: {
     addError: (state, action) => {
       const time = getCurrentFullUnixTime();
-      const id = generateId()
+      const id = generateId();
       state.errors.push({ id, message: action.payload, timestamp: time });
     },
     removeError: (state, action) => {
@@ -24,7 +26,7 @@ const globalSlice = createSlice({
     },
     addSuccess: (state, action) => {
       const time = getCurrentFullUnixTime();
-      const id = generateId()
+      const id = generateId();
       state.success.push({ id, message: action.payload, timestamp: time });
     },
     removeSuccess: (state, action) => {
@@ -34,7 +36,7 @@ const globalSlice = createSlice({
     },
     addInfo: (state, action) => {
       const time = getCurrentFullUnixTime();
-      const id = generateId()
+      const id = generateId();
       state.info.push({ id, message: action.payload, timestamp: time });
     },
     removeInfo: (state, action) => {
@@ -45,6 +47,9 @@ const globalSlice = createSlice({
     },
     stopLoading: (state) => {
       state.loading = false;
+    },
+    setAuth: (state, action) => {
+      state.isAuth = action.payload;
     },
   },
 });
@@ -58,5 +63,6 @@ export const {
   removeSuccess,
   startLoading,
   stopLoading,
+  setAuth,
 } = globalSlice.actions;
 export default globalSlice.reducer;
