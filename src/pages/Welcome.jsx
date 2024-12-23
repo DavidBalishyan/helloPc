@@ -15,7 +15,7 @@ const Welcome = () => {
         </p>
         <div className="flex justify-center gap-4">
           <Link to="/getstarted" className="btn btn-primary btn-wide">Get Started</Link>
-          <Link to="/indev" className="btn btn-outline btn-wide">
+          <Link to="/lrnmore" className="btn btn-outline btn-wide">
             Learn More
           </Link>
         </div>
