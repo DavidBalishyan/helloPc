@@ -6,23 +6,37 @@ const resources = {
     translation: {
       signin: "Sign In",
       signup: "Sign Up",
-      notificationsMessage_one: "You have {{count}} notification",
-      notificationsMessage_other: "You have {{count}} notifications",
+      arl: "All rights reserved",
+      password: "Password",
+      email: "Email",
     },
   },
   am: {
     translation: {
       signin: "Մուտք",
       signup: "Գրանցում",
+      arl: "բոլոր իրավունքները պաշտպանված են",
+      password: "Գաղտնաբառ",
+      email: "Էլ. փոստ",
     },
   },
   ru: {
     translation: {
       signin: "Войти",
       signup: "Зарегистрироваться",
-      notificationsMessage_one: "У вас {{count}} уведомление",
-      notificationsMessage_other: "У вас {{count}} уведомлений",
+      arl: "Все права защищены",
+      password: "Пароль",
+      email: "Эл. почта",
     },
+  },
+  fr: {
+      translation: {
+        signin: "Se connecter",
+        signup: "S'inscrire",
+        arl: "Tous droits réservés",
+        password: "Mot de passe",
+        email: "Email",
+      },
    }
 };
 

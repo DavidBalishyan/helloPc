@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { check_user_email, postUser } from "../logic/auth/authSignUpAPI";
-import { addError, addInfo } from "../logic/global/globalSlice";
+import { addError, addInfo, addSuccess } from "../logic/global/globalSlice";
 import { Link } from "react-router-dom";
 
 function SignUp() {
@@ -97,7 +97,7 @@ function SignUp() {
 
             {/* Submit Button */}
             <div className="form-control mt-4">
-              <button type="submit" className="btn btn-primary w-full">
+              <button type="submit" className="btn btn-primary w-full" onClick={() => dispatch(addSuccess("S"))}>
                 Sign up
               </button>
             </div>

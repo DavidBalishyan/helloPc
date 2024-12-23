@@ -5,6 +5,12 @@
       "email": "test@test.test",
       "password": "test",
       "id": 1
+    },
+    {
+      "fullName": "David",
+      "email": "hello@hello.me",
+      "password": "hello",
+      "id": 2
     }
   ]
 }

@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { login_user } from "../logic/auth/authSignInAPI";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function SignIn() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const {
     register,
@@ -32,16 +34,16 @@ function SignIn() {
     <div className="flex flex-grow justify-center items-center bg-base-200">
       <div className="card w-full max-w-md shadow-2xl bg-base-100">
         <div className="card-body">
-          <h2 className="text-2xl font-bold text-center">Sign In</h2>
+          <h2 className="text-2xl font-bold text-center">{t("signin")}</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Email Field */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+              <span className="label-text">{t("email")}</span>
               </label>
               <input
                 type="text"
-                placeholder="Enter your email"
+                placeholder={t("email")}
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -63,11 +65,11 @@ function SignIn() {
             {/* Password Field */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">{t("password")}</span>
               </label>
               <input
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t("password")}
                 {...register("password", {
                   required: "Password is required",
                 })}
@@ -85,7 +87,7 @@ function SignIn() {
             {/* Submit Button */}
             <div className="form-control mt-6">
               <button type="submit" className="btn btn-primary">
-                Login
+              {t("signin")}
               </button>
             </div>
           </form>

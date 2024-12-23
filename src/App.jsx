@@ -19,6 +19,7 @@ import { addError, addInfo, addSuccess } from "./logic/global/globalSlice";
 import { getCurrentFullUnixTime } from "./utils/time";
 import Trash from "./components/Trash";
 import LrnMore from "./pages/LrnMore";
+import Indev from "./pages/Indev";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,16 +31,17 @@ function App() {
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
-    dispatch(addSuccess(getCurrentFullUnixTime()));
-    dispatch(addInfo(getCurrentFullUnixTime()));
-    dispatch(addError(getCurrentFullUnixTime()));
+    const geolocation = navigator.geolocation;
+    console.log(geolocation);
+    console.log(navigator);
+    dispatch(addInfo(userAgent))
   }, []);
 
   useEffect(() => {
     if (!isAuth) {
       navigate("/signin");
     }
-  }, [isAuth]);
+  }, [isAuth]); 
 
   return (
     <div className="h-[100vh] flex flex-grow flex-col bg-background text-text">
@@ -57,6 +59,7 @@ function App() {
         <Route path="/lrnmore" element={<LrnMore />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/trash" element={<Trash />} />
+        <Route path="/indev" element={<Indev />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <NotificationManager />

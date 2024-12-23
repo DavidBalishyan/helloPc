@@ -7,6 +7,7 @@ import Profile from "./content/Profile";
 import ThemeChangeComponent from "./content/ThemeChangeComponent";
 import logo from "/Logo.png";
 import { useSelector } from "react-redux";
+import LngChange from "../_common/LngChange/LngChange";
 
 
 const Navbar = () => {
@@ -62,7 +63,7 @@ const Navbar = () => {
             ) : (
               <Auth isMenuOpen={isMenuOpen} />
             )}
-            LNG
+            <LngChange/>
           </div>
         </div>
       </div>
@@ -78,6 +79,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    
   );
 };
 
