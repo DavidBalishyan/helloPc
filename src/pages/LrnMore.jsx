@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom"
-
-
 const LrnMore = () => {
     return (
         <section className="bg-base-100 py-12">

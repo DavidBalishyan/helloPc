@@ -1,9 +1,11 @@
 const Indev = () => {
     return(
         <>
-            <h1>Hello World</h1>
+        <div className="h-screen flex justify-center align-middle">
+    <h1 className="font-extrabold">This Page is Still under development</h1>
+    </div>
         </>
     )
 }
 
-export default  Indev
+export default  Indev;

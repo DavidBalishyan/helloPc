@@ -8,7 +8,7 @@ const resources = {
       signup: "Sign Up",
       arl: "All rights reserved",
       password: "Password",
-      email: "Email",
+      email: "Email"
     },
   },
   am: {
@@ -17,7 +17,7 @@ const resources = {
       signup: "Գրանցում",
       arl: "բոլոր իրավունքները պաշտպանված են",
       password: "Գաղտնաբառ",
-      email: "Էլ. փոստ",
+      email: "Էլ. փոստ"
     },
   },
   ru: {
@@ -26,7 +26,7 @@ const resources = {
       signup: "Зарегистрироваться",
       arl: "Все права защищены",
       password: "Пароль",
-      email: "Эл. почта",
+      email: "Эл. почта"
     },
   },
   fr: {
@@ -35,8 +35,17 @@ const resources = {
         signup: "S'inscrire",
         arl: "Tous droits réservés",
         password: "Mot de passe",
-        email: "Email",
+        email: "Email"
       },
+   },
+   kor: {
+    translation: {
+      signin: "Korean",
+      signup: "Korean",
+      arl: "Korean",
+      password: "Korean",
+      email: "Korean"
+    }
    }
 };
 

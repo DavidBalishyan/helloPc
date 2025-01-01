@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable  react-hooks/exhaustive-deps*/
 import { useEffect } from "react";
 import SignUp from "./pages/SignUp";
 import { useDispatch } from "react-redux";

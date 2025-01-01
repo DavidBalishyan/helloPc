@@ -35,6 +35,11 @@ const LngChange = () => {
                 lngChange("fr");
             }}>France</button>
           </li>
+          <li>
+            <button onClick={() => {
+                lngChange("kor");
+            }}>Korean</button>
+          </li>
         </ul>
       </details>
   );

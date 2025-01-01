@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 import { useState } from "react";
 import NavLinks from "./content/NavLinks";
 import Auth from "./content/Autentication";

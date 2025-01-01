@@ -1,5 +1,4 @@
-import React from "react";
-
+/* eslint-disable react/no-unescaped-entities */
 const Contact = () => {
   return (
     <div className="flex flex-col flex-grow bg-base-200">
